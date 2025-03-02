@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #003366;
+  --primary-light: #5385e4;
+  --accent: #4caf50; /* Changed to green */
+  --gray-dark: #666666;
+  --gray-light: #c3c3c3;
+  --background: #f3eded;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-primary;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, var(--primary) 0%, rgba(0, 51, 102, 0.9) 100%);
+}
+
+.feature-card {
+  @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300;
+}
+
+.feature-icon {
+  @apply bg-primary-light/10 p-3 rounded-full text-primary-light mb-4 inline-block;
+}
+
+.cta-button-primary {
+  @apply bg-accent text-white font-medium py-3 px-6 rounded-md hover:bg-accent/90 transition-colors duration-300;
+}
+
+.cta-button-secondary {
+  @apply bg-white text-primary border border-primary font-medium py-3 px-6 rounded-md hover:bg-primary/5 transition-colors duration-300;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-4 text-primary;
+}
+
+.section-subtitle {
+  @apply text-xl text-gray-dark mb-8 max-w-3xl mx-auto;
+}
+
+.stat-card {
+  @apply bg-white p-6 rounded-xl shadow-md text-center;
+}
+
+.stat-number {
+  @apply text-4xl font-bold text-accent mb-2;
+}
+
+.stat-text {
+  @apply text-gray-dark text-sm;
+}
+
