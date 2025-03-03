@@ -7,18 +7,46 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Importa los estilos de react-toastify
 
 export default function Footer() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Formulario enviado");
-    toast.success("Email sent successfully!", {
-      position: "top-right",
-      autoClose: 3000, // Cierra después de 3 segundos
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-    // Opcional: Aquí podrías agregar lógica para enviar el email a través de una API
+    setIsSubmitting(true);
+
+    // Obtener el email del formulario
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email"); // "email" debe coincidir con el atributo `name` del input
+
+    try {
+      // Enviar el email a la API
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        toast.success("Email sent successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        throw new Error("Error al enviar el email");
+      }
+    } catch (error) {
+      toast.error("Failed to send email", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -37,15 +65,18 @@ export default function Footer() {
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
+                name="email" // Agregar el atributo `name` para que FormData lo detecte
                 placeholder="Your email address"
                 className="flex-1 px-4 py-3 rounded-md text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                 required
+                disabled={isSubmitting}
               />
               <button
                 type="submit"
                 className="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-6 rounded-md transition-colors duration-300"
+                disabled={isSubmitting}
               >
-                Sign up now
+                {isSubmitting ? "Sending..." : "Sign up now"}
               </button>
             </form>
             <p className="text-sm mt-3 opacity-75">
@@ -54,38 +85,41 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-10 mt-10">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <div className="bg-white p-3 rounded-lg inline-block mb-4">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/VOIGUARD%20sin%20bg-s8CqROEpj5ACWgmYe2L40m7f5b5KKR.png"
-                  alt="VoiGuard Logo"
-                  width={160}
-                  height={46}
-                  className="mx-auto md:mx-0"
-                />
-              </div>
-              <p className="text-sm opacity-75">
-                © {new Date().getFullYear()} VoiGuard. All rights reserved.
-              </p>
-            </div>
+        <div className="border-t border-white/20 pt-10 mt-10"></div>
+      </div>
 
-            <div className="flex gap-8">
-              <Link href="#" className="hover:text-accent transition-colors">
-                Terms
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Privacy
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Contact
-              </Link>
+      <div className="bg-white text-primary py-6">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-6 md:mb-0">
+            <div className="p-3 rounded-lg inline-block mb-4">
+              <Image
+                src="/images/Voiguard-logo.png"
+                alt="VoiGuard Logo"
+                width={160}
+                height={46}
+                className="mx-auto md:mx-0"
+              />
             </div>
+            <p className="text-sm text-gray-700">
+              © {new Date().getFullYear()} VoiGuard. All rights reserved.
+            </p>
+          </div>
+
+          <div className="flex gap-8">
+            <Link href="#" className="text-gray-700 hover:text-accent transition-colors">
+              Terms
+            </Link>
+            <Link href="#" className="text-gray-700 hover:text-accent transition-colors">
+              Privacy
+            </Link>
+            <Link href="#" className="text-gray-700 hover:text-accent transition-colors">
+              Contact
+            </Link>
           </div>
         </div>
       </div>
-      <ToastContainer /> {/* Asegúrate de que esté al final del footer */}
+
+      <ToastContainer />
     </footer>
   );
 }

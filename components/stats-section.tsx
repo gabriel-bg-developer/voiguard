@@ -11,21 +11,21 @@ export default function StatsSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-3">75%</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-3">70%</div>
             <p className="text-lg">of people never answer calls from unknown numbers.</p>
-            <p className="mt-4 text-sm opacity-75">Based on a survey by Transaction Network Services. tnsi.com</p>
+            {/* <p className="mt-4 text-sm opacity-75">Based on a survey by Transaction Network Services. tnsi.com</p> */}
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-3">£11.4B</div>
-            <p className="text-lg">lost annually due to phone scams in the UK.</p>
-            <p className="mt-4 text-sm opacity-75">According to a report by Cifas. cifas.org.uk</p>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-3">£807B</div>
+            <p className="text-lg">billion, according to the Global Anti-Scam Alliance, represents the staggering annual losses from scams across the globe.</p>
+            {/* <p className="mt-4 text-sm opacity-75">According to a report by Cifas. cifas.org.uk</p> */}
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
             <div className="text-4xl md:text-5xl font-bold text-accent mb-3">500%</div>
             <p className="text-lg">increase in fraud attempts through calls and SMS in the last decade.</p>
-            <p className="mt-4 text-sm opacity-75">Source: infobae.com</p>
+            {/* <p className="mt-4 text-sm opacity-75">Source: infobae.com</p> */}
           </div>
         </div>
       </div>
