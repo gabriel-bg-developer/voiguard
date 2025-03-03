@@ -1,18 +1,40 @@
-import Image from "next/image"
-import Link from "next/link"
+"use client"; // Marca el componente como Client Component
+
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Importa los estilos de react-toastify
 
 export default function Footer() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Formulario enviado");
+    toast.success("Email sent successfully!", {
+      position: "top-right",
+      autoClose: 3000, // Cierra después de 3 segundos
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    // Opcional: Aquí podrías agregar lógica para enviar el email a través de una API
+  };
+
   return (
     <footer className="bg-primary text-white pt-20 pb-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Stop Guessing. Start Connecting.</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Stop Guessing. Start Connecting.
+          </h2>
           <p className="text-xl max-w-3xl mx-auto mb-8 opacity-90">
-            Every call should be an opportunity, not a risk. Welcome to the new era of trusted communication.
+            Every call should be an opportunity, not a risk. Welcome to the new
+            era of trusted communication.
           </p>
 
           <div id="signup" className="max-w-md mx-auto">
-            <form className="flex flex-col sm:flex-row gap-3">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 placeholder="Your email address"
@@ -26,7 +48,9 @@ export default function Footer() {
                 Sign up now
               </button>
             </form>
-            <p className="text-sm mt-3 opacity-75">Be part of the change. Join the secure calling revolution.</p>
+            <p className="text-sm mt-3 opacity-75">
+              Be part of the change. Join the secure calling revolution.
+            </p>
           </div>
         </div>
 
@@ -42,7 +66,9 @@ export default function Footer() {
                   className="mx-auto md:mx-0"
                 />
               </div>
-              <p className="text-sm opacity-75">© {new Date().getFullYear()} VoiGuard. All rights reserved.</p>
+              <p className="text-sm opacity-75">
+                © {new Date().getFullYear()} VoiGuard. All rights reserved.
+              </p>
             </div>
 
             <div className="flex gap-8">
@@ -59,7 +85,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <ToastContainer /> {/* Asegúrate de que esté al final del footer */}
     </footer>
-  )
+  );
 }
-
