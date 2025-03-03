@@ -43,11 +43,11 @@ export default function FeatureSection() {
           <div className="lg:w-1/2">
             <div className="relative mx-auto w-[280px] md:w-[320px]">
               <Image
-                src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                src="/images/voiguard-context.webp"
                 alt="VoiGuard Real-Time Context"
                 width={300}
                 height={600}
-                className="rounded-3xl shadow-2xl border-4 border-primary/20"
+                className=""
               />
               <div className="absolute -top-4 -right-4 bg-white p-3 rounded-lg shadow-lg">
                 <div className="flex items-center gap-2">

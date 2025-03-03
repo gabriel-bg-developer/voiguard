@@ -35,11 +35,11 @@ export default function HeroSection() {
           <div className="lg:w-1/2 relative">
             <div className="relative mx-auto w-[280px] md:w-[320px]">
               <Image
-                src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                src="/images/void-guard.webp"
                 alt="VoiGuard App Demo"
                 width={300}
                 height={600}
-                className="rounded-3xl shadow-2xl border-4 border-white/20"
+                className=""
               />
               <div className="absolute -top-4 -left-4 bg-white/10 backdrop-blur-sm p-3 rounded-lg border border-white/20">
                 <div className="flex items-center gap-2">
