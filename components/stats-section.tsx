@@ -9,27 +9,39 @@ export default function StatsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Primer item */}
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
             <div className="text-4xl md:text-5xl font-bold text-accent mb-3">70%</div>
-            <p className="text-lg">of people never answer calls from unknown numbers.</p>
+            <p className="text-lg">of people never answer calls from unknown numbers, a study said.</p>
             {/* <p className="mt-4 text-sm opacity-75">Based on a survey by Transaction Network Services. tnsi.com</p> */}
           </div>
 
+          {/* Segundo item */}
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
             <div className="text-4xl md:text-5xl font-bold text-accent mb-3">£807B</div>
             <p className="text-lg">billion, according to the Global Anti-Scam Alliance, represents the staggering annual losses from scams across the globe.</p>
             {/* <p className="mt-4 text-sm opacity-75">According to a report by Cifas. cifas.org.uk</p> */}
           </div>
 
+          {/* Tercer item */}
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
             <div className="text-4xl md:text-5xl font-bold text-accent mb-3">500%</div>
             <p className="text-lg">increase in fraud attempts through calls and SMS in the last decade.</p>
             {/* <p className="mt-4 text-sm opacity-75">Source: infobae.com</p> */}
           </div>
+
+          {/* Cuarto item */}
+          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-3">£65B</div>
+            <p className="text-lg">billion is lost annually by UK companies due to unanswered calls.</p>
+            {/* <p className="mt-4 text-sm opacity-75">Source: infobae.com</p> */}
+          </div>
         </div>
+
       </div>
     </section>
   )
 }
+
 

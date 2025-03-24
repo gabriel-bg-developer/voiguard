@@ -66,7 +66,7 @@ export default function HowItWorks() {
             <div className="feature-icon">
               <Headphones size={24} />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-primary">Live Call Subtitles</h3>
+            <h3 className="text-xl font-bold mb-3 text-primary">Live Captions</h3>
             <ul className="space-y-2 text-gray-dark">
               <li className="flex items-start">
                 <span className="text-accent mr-2">•</span>
